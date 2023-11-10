@@ -45,7 +45,7 @@ class DiscreteSchedule(nn.Module):
     def __init__(self, sigmas, quantize):
         super().__init__()
         self.register_buffer('sigmas', sigmas)
-        self.register_buffer('log_sigmas', sigmas.log())
+        self.register_buffer('log_sigmas', sigmas.float().log())
         self.quantize = quantize
 
     @property
